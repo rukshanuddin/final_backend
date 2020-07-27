@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :topics
       resources :links, except: :index do
-        resources :comments, only: [:create, :edit, :update, :destroy]
+        resources :comments, only: [:create, :update, :destroy]
       end
     end
   end
