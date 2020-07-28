@@ -1,13 +1,19 @@
+require 'pry'
+
 
 class SessionsController < ApplicationController
   skip_before_action :authenticate
   def create
-    user = User.find_by(email: auth_params[:email])
-    if user.authenticate(auth_params[:password])
-      jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt}
+    @user = User.find_by(email: auth_params[:email])
+    if @user != nil 
+      if @user.authenticate(auth_params[:password])
+        jwt = Auth.issue({user_id: @user.id})
+        render json: {user: @user, jwt: jwt}
+      else
+      render json: {error: "Password does not match database."}, status: 401
+      end
     else
-      render json: {error: 'Wrong email or password'}, status: 401
+      render json: {error: "E-mail field: #{auth_params[:email]} is not valid"}, status: 422  
     end
   end
 
