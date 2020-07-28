@@ -8,7 +8,7 @@ module Api
       end
 
       def show 
-        render json: Link.where(topic_id: params[:id])
+        render json: Topic.find_by(id: params[:id]), serializer: TopicShowSerializer
       end
 
     end
