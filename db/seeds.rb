@@ -35,19 +35,12 @@ topics = [
 
 topics.each { |topic| Topic.create(name: topic[0], img: topic[1] ? topic[1] : "https://images.opencollective.com/front-end-checklist/fccee96/logo/256.png" )}
 
-#     t.string "name"
-#     t.string "link"
-#     t.string "category"
-#     t.string "section"
-#     t.string "language"
-#     t.string "blurb"
-#     t.bigint "topic_id"
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'git.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Git")
+    t.topic_id = Topic.find_by_name("Git").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -65,7 +58,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'ruby.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Ruby")
+    t.topic_id = Topic.find_by_name("Ruby").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -83,7 +76,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'js.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Javascript")
+    t.topic_id = Topic.find_by_name("Javascript").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -102,7 +95,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'react.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("ReactJS")
+    t.topic_id = Topic.find_by_name("ReactJS").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -117,7 +110,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'aiml.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("AI & ML")
+    t.topic_id = Topic.find_by_name("AI & ML").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -132,7 +125,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'api.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Rails API")
+    t.topic_id = Topic.find_by_name("Rails API").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -147,7 +140,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'ce.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Communities & Cont. Learning")
+    t.topic_id = Topic.find_by_name("Communities & Cont. Learning").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -166,7 +159,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'channels.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Video Channels")
+    t.topic_id = Topic.find_by_name("Video Channels").id
     t.name = row['Name']
     t.url = row['Link']
     if row['Link'].include?("youtube")
@@ -184,7 +177,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'cs.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("CS Concepts")
+    t.topic_id = Topic.find_by_name("CS Concepts").id
     if row["Site Name"] != nil
         t.name = row['Site Name']
     else
@@ -202,7 +195,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'fe.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Front-end")
+    t.topic_id = Topic.find_by_name("Front-end").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -220,7 +213,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'gendocs.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("General Tools & Docs")
+    t.topic_id = Topic.find_by_name("General Tools & Docs").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -238,7 +231,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'inspo.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Inspirational")
+    t.topic_id = Topic.find_by_name("Inspirational").id
     t.name = row['Name']
     t.url = row['Link']
     t.category = "Video Webinar by Avi Flombaum"
@@ -252,7 +245,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'podcast.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Podcasts")
+    t.topic_id = Topic.find_by_name("Podcasts").id
     t.name = row['Name']
     t.url = row['Link']
     t.category = "Podcast"
@@ -270,7 +263,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'testing.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Testing")
+    t.topic_id = Topic.find_by_name("Testing").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -289,7 +282,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'fe.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Front-end")
+    t.topic_id = Topic.find_by_name("Front-end").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -307,7 +300,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'sql.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("SQL")
+    t.topic_id = Topic.find_by_name("SQL").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -321,7 +314,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'productivity.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Productivity Tools")
+    t.topic_id = Topic.find_by_name("Productivity Tools").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -335,7 +328,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'os.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Operating Systems")
+    t.topic_id = Topic.find_by_name("Operating Systems").id
     t.name = row['Site Name']
     t.url = row['Link']
     t.category = row['Category']
@@ -349,7 +342,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'interview.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Interview Prep & Practice")
+    t.topic_id = Topic.find_by_name("Interview Prep & Practice").id
     t.name = row['Name']
     t.url = row['Link']
     t.category = "Practice"
@@ -363,7 +356,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'WiT.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Women in Tech")
+    t.topic_id = Topic.find_by_name("Women in Tech").id
     t.name = row['Name']
     t.url = row['Link']
     t.category = "Women in Tech"
@@ -377,7 +370,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'twitter.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Link.create
-    t.topic = Topic.find_by_name("Twitter")
+    t.topic_id = Topic.find_by_name("Twitter").id
     if row['Name'] != nil
         t.name = row['Name']
     else
