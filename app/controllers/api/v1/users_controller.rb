@@ -1,7 +1,7 @@
 module Api 
   module V1
     class UsersController < ApplicationController
-      skip_before_action :authenticate, only: [:create, :show]
+      skip_before_action :authenticate, only: [:create]
       before_action :set_user, only: [:show, :update]
       before_action :authorize_user, only: [:update]
 
