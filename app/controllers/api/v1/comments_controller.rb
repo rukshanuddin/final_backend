@@ -2,9 +2,10 @@ module Api
   module V1
     class CommentsController < ApplicationController
       before_action :set_comment, only: [:update, :destroy]
-
+      skip_before_action :authenticate, only: [:index]
+      
       def index
-        @comments = Comment.all
+        @comments = Comment.where(link_id: params[:link_id])
         render json: @comments
       end
 
@@ -13,7 +14,7 @@ module Api
         @comment = @link.comments.new(user: current_user, body: comment_params[:body])
 
         if @comment.save
-          render json: @comment, status: :201
+          render json: @comment, status: 201
         else
           render json: @comment.errors, status: 422
         end
@@ -29,7 +30,7 @@ module Api
 
       def destroy
         @comment.destroy
-        status: 204
+        render json: @comment, status: 204
       end
 
       private
@@ -43,5 +44,5 @@ module Api
         @comment = Comment.find(params[:id])
       end
     end
-
+  end
 end

@@ -1,7 +1,8 @@
 module Api 
   module V1
     class LinksController < ApplicationController
-  
+      skip_before_action :authenticate
+
       def index
         render json: Link.all
       end
