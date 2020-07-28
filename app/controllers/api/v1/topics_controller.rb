@@ -4,11 +4,11 @@ module Api
       skip_before_action :authenticate
 
       def index
-        render json: Topic.all.to_json
+        render json: Topic.all
       end
 
       def show 
-        render json: Link.where(topic_id: params[:id]).to_json
+        render json: Link.where(topic_id: params[:id])
       end
 
     end
