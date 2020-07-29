@@ -22,7 +22,9 @@ module Api
       def show
         render json: @user 
       end
-
+   def profile
+        render json: { user: current_user }, status: :accepted
+    end
       def update 
         if @user.update(user_params)
           render json: @user, status: 200

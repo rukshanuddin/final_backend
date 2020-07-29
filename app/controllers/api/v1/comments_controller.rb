@@ -14,7 +14,7 @@ module Api
         @comment = @link.comments.new(user: current_user, body: comment_params[:body])
 
         if @comment.save
-          render json: @comment, status: 201
+          render json: Comment.where(link_id: params[:link_id]), status: 201
         else
           render json: @comment.errors, status: 422
         end
@@ -30,7 +30,7 @@ module Api
 
       def destroy
         @comment.destroy
-        render json: @comment, status: 204
+        render json: Comment.where(link_id: params[:link_id])
       end
 
       private

@@ -2,7 +2,7 @@ require 'pry'
 
 
 class SessionsController < ApplicationController
-  skip_before_action :authenticate
+  skip_before_action :authenticate, only: [:create]
   def create
     @user = User.find_by(email: auth_params[:email])
     if @user != nil 
@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
       render json: {error: "E-mail field: #{auth_params[:email]} is not valid"}, status: 422  
     end
   end
+
+
 
   private
 
