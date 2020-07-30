@@ -10,41 +10,47 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-After cloning this project and going into the directory of the project run
+The following steps will setup a Rails server for this application. After setting up server, follow the directions [here](https://github.com/rukshanuddin/final_frontend/blob/master/README.md#installation) to set up the client portion of the application.
 
-```shell
-bundle install
-```
+1. Clone this project
+2. Navigate to directory and from the terminal, run
+   
+    ```shell
+    bundle install
+    ```
+3. (optional) If you get a different version used form assign error, run
 
-If you get a different version used form assign error, run then try the above step again
+    ```shell
+    rvm use 2.6.3
+    ```
 
-```shell
-rvm use 2.6.3
-```
+    and repeat step 2.
 
-Because this project uses PostgreSQL you need to turn on the server so it works properly.
+4. After gem installation is complete, run
 
-```shell
-rails db:create
+    ```shell
+    rails db:create
 
-rails db:migrate
+    rails db:migrate
 
-rails db:seed
-```
+    rails db:seed
+    ```
 
-Then you should run the below command, making sure you run it on port 3000 if running it with the [React front-end](https://github.com/rukshanuddin/final_frontend) mentioned at the beginning of this repo
+    $Note:$ **Because this project uses PostgreSQL you need to ensure the Postgres server is running in order for it to function properly.**
 
-```shell
-rails server
-```
+5. Run the below command, making sure you run it on port 3000 if running it with the [React front-end](https://github.com/rukshanuddin/final_frontend) mentioned at the beginning of this repo
 
-or
+    ```shell
+    rails server
+    ```
 
-```shell
-rails s
-```
+    or
 
-Check to see if it is working by opening **[localhost:3000](http://localhost:3000/)** in your browser.
+    ```shell
+    rails s
+    ```
+
+6. Check to see if it is working by opening **[localhost:3000](http://localhost:3000/)** in your browser.
 
 ## Built With
 
