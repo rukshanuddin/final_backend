@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user != nil 
       if @user.authenticate(auth_params[:password])
         jwt = Auth.issue({user_id: @user.id})
-        render json: {user: @user, jwt: jwt}
+        render json: {user: UserSerializer.new(@user), jwt: jwt}
       else
       render json: {error: "Password does not match database."}, status: 401
       end
