@@ -14,10 +14,11 @@ The following steps will setup a Rails server for this application. After settin
 
 1. Clone this project
 2. Navigate to directory and from the terminal, run
-   
+
     ```shell
     bundle install
     ```
+
 3. (optional) If you get a different version used form assign error, run
 
     ```shell
@@ -51,6 +52,10 @@ The following steps will setup a Rails server for this application. After settin
     ```
 
 6. Check to see if it is working by opening **[localhost:3000](http://localhost:3000/)** in your browser.
+
+## Project Checklist
+
+[Checklist available here](https://github.com/rukshanuddin/final_frontend/blob/master/CHECKLIST.md)
 
 ## Built With
 
