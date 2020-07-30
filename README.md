@@ -1,8 +1,8 @@
 # The Block - Backend
 
-This Block is a web app manifestation of the an unofficial Flatiron School resource, the "BALOCK," which is an amazing spreadsheet containing links to various resources regarding software development and tech in general.
+This Block is a web app manifestation of the an unofficial Flatiron School resource, the "BALOCK," which is an amazing spreadsheet containing links to various resources regarding software development and tech in general. This repo contains the server side, a.k.a. backend of the application. It a JSON API written with Ruby on Rails.
 
-[The Block - Frontend](https://github.com/rukshanuddin/final_frontend)
+You can browse through lists of links on various topics in web development and tech in general. A user does not have to register to use the app, but must register to leave comments. You can clone this repo to test the server side on your local machine ass well as the frontend repo, [The Block - Frontend](https://github.com/rukshanuddin/final_frontend), to test the client side of the application.
 
 ## Getting Started
 
